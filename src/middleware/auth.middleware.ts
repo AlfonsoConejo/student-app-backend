@@ -44,9 +44,9 @@ export async function authMiddleware(
     } catch (error) {
       console.error('Error actualizando la sesión:', error);
 
-      return response.status(500).json({
-        code: 'SESSION_UPDATE_FAILED',
-        message: 'Error interno del servidor',
+      return response.status(503).json({
+        code: 'AUTH_SERVICE_UNAVAILABLE',
+        message: 'El servicio de autenticación no está disponible',
       });
     }
 
